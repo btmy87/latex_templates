@@ -1,7 +1,16 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{memo_template}[2026/07/28 Memo-style document class]
 
-\LoadClass[11pt,oneside]{article}
+\newcommand{\@memoptptsize}{11pt}
+\DeclareOption{10pt}{\def\@memoptptsize{10pt}}
+\DeclareOption{11pt}{\def\@memoptptsize{11pt}}
+\DeclareOption{12pt}{\def\@memoptptsize{12pt}}
+\DeclareOption*{\PassOptionsToClass{\CurrentOption}{article}}
+\ExecuteOptions{11pt}
+\ProcessOptions\relax
+
+\PassOptionsToClass{\@memoptptsize,oneside}{article}
+\LoadClass{article}
 
 \RequirePackage[letterpaper,margin=1in]{geometry}
 \RequirePackage{fancyhdr}
@@ -9,6 +18,7 @@
 \RequirePackage{blindtext}
 \RequirePackage{unicode-math}
 \RequirePackage{fontspec}
+\RequirePackage{makecell}
 
 \setmainfont{NotoSerif}[
   Path = ../fonts/,
