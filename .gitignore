@@ -1,0 +1,12 @@
+*.aux 
+*.fdb_latexmk 
+*.fls 
+*.ilg 
+*.log 
+*-mathml.html 
+*.nlo 
+*.nls
+*.pdf 
+Release/*
+*.synctex.gz 
+*.synctex(busy)
