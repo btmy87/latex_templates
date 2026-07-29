@@ -1,6 +1,21 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{memo_template}[2026/07/28 Memo-style document class]
 
+% Class to implement basic TCM template
+% use macros to set the header fields
+% Memo Number   \memonum
+% Subject       \title
+% To            \memoto
+% CC            \memocc
+% From          \author
+% Supercedes    \memosup
+% The headder is implemented as a tabularx table.
+% Use \newline, not \\, to force a new line.
+% Might wish to do so when listing multiple authors
+%
+% fancyhdr is used to put the logo in the upper right, other
+% header/footer fields are available to the user.
+
 \newcommand{\@memoptptsize}{11pt}
 \DeclareOption{10pt}{\def\@memoptptsize{10pt}}
 \DeclareOption{11pt}{\def\@memoptptsize{11pt}}
@@ -43,6 +58,7 @@
   Path = ../fonts/,
   Extension = .ttf
 ]
+\setmonofont{Consolas}
 
 \renewcommand{\familydefault}{\sfdefault}
 
