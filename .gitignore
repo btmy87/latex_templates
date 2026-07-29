@@ -10,3 +10,4 @@
 Release/*
 *.synctex.gz 
 *.synctex(busy)
+*.minted 
