@@ -19,6 +19,11 @@
 \RequirePackage{unicode-math}
 \RequirePackage{fontspec}
 \RequirePackage{makecell}
+\RequirePackage{parskip}
+\RequirePackage{tabularx}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.5\baselineskip}
 
 \setmainfont{NotoSerif}[
   Path = ../fonts/,
@@ -28,8 +33,12 @@
   ItalicFont = *-Italic,
   BoldItalicFont = *-BoldItalic,
 ]
-\setsansfont{Arial}
-
+\setsansfont{Arial}[
+  RegularFont    = Arial,
+  BoldFont       = Arial Bold,
+  ItalicFont     = Arial Italic,
+  BoldItalicFont = Arial Bold Italic
+]
 \setmathfont{NotoSansMath-Regular}[
   Path = ../fonts/,
   Extension = .ttf
@@ -58,21 +67,26 @@
 \newcommand{\memocc}[1]{\gdef\@memocc{#1}}
 \newcommand{\memosup}[1]{\gdef\@memosup{#1}}
 
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}
+
 \renewcommand{\maketitle}{
   \begin{centering}
     {\Large\bfseries Technical Coordination Memorandum\par}
     \bigskip
   \end{centering}
   \begin{flushleft}
-    \begin{tabular}{l l}
-      \textbf{\MakeUppercase{TCM Number:}} & \@memonum \\
-      \textbf{\MakeUppercase{To:}}         & \@memoto \\
-      \textbf{\MakeUppercase{cc:}}         & \@memocc \\
-      \textbf{\MakeUppercase{From:}}       & \@author \\
-      \textbf{\MakeUppercase{Subject:}}    & \@title \\
-      \textbf{\MakeUppercase{Date:}}       & \@date \\
-      \textbf{\MakeUppercase{Supercedes:}} & \@memosup \\
-    \end{tabular}
+    {
+      \renewcommand{\arraystretch}{1.2}
+      \begin{tabularx}{\linewidth}{@{}l L}
+        \textbf{\MakeUppercase{TCM Number:}} & \@memonum \\
+        \textbf{\MakeUppercase{Subject:}}    & \@title \\
+        \textbf{\MakeUppercase{To:}}         & \@memoto \\
+        \textbf{{\MakeUppercase{cc:}}}       & \@memocc \\
+        \textbf{\MakeUppercase{From:}}       & \@author \\
+        \textbf{\MakeUppercase{Date:}}       & \@date \\
+        \textbf{\MakeUppercase{Supercedes:}} & \@memosup \\
+      \end{tabularx}
+    }
   \end{flushleft}
   \noindent\rule{\textwidth}{1pt}\hfill
   \thispagestyle{fancy}
