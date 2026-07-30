@@ -1,0 +1,33 @@
+\documentclass{article}
+
+\usepackage{fontspec}
+\setsansfont{Arial}[
+  RegularFont    = Arial,
+  BoldFont       = Arial Bold,
+  ItalicFont     = Arial Italic,
+  BoldItalicFont = Arial Bold Italic
+]
+\renewcommand{\familydefault}{\sfdefault}
+
+\begin{document}
+\pagestyle{empty}
+\vspace*{\fill}
+\begin{center}
+  \begin{Huge}
+    My Cover Page
+  \end{Huge}
+\end{center}
+\vspace*{\fill}
+
+\begin{small}
+  \MakeUppercase{
+    The following document may contain math!
+    The author of this document is not responsible for any
+    physical, mental, psychological or emotional damage that
+    may result from consuming math.  The reader of this document
+    accepts these terms upon opening the document.  Processed
+    in a facility that also processes treenuts, milk, and peanuts.
+  }
+\end{small}
+\vspace*{\fill}
+\end{document}

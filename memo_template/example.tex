@@ -8,10 +8,17 @@ title may wraps onto another line}
 \date{2461250.5 JD}
 \memoto{Someone who might read your memo}
 \memocc{Someone who probably won't read your memo
-\newline Someone who definitely won't read your memo}
+  \newline Someone who definitely won't read your memo
+\newline Someone who will disagree with your memo before fully reading it}
 \memosup{Nothing or everything}
 
+\usepackage{pdfpages}
+
 \begin{document}
+\includepdf{coverpage.pdf}
+\clearpage
+\setcounter{page}{1}
+
 \maketitle
 
 \section{Introduction}
@@ -43,4 +50,5 @@ Good memos might just have some code,
 \section{Conclusion}
 \blindtext
 
+\includepdf{coverpage.pdf}
 \end{document}
